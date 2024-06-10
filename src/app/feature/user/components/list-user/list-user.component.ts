@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ListUserComponent {
   listUser: any;
+  formUser: any;
   titleModal: string;
   userId: number;
   constructor(
@@ -23,13 +24,14 @@ export class ListUserComponent {
     }, (err: any) => {
       console.log(err);
     });
-  }
+  } 
 
   createUser(modalId) {
     this.titleModal = 'Tambah User';
     this.userId = 0;
     this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
   }
+ 
 
   updateUser(modalId, user) {
     this.titleModal = 'Edit User: ' + user.name;

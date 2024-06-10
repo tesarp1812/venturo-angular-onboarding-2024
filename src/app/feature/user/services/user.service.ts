@@ -15,6 +15,11 @@ export class UserService {
   getUserById(userId) {
     return this.landaService.DataGet('/v1/users/' + userId);
   }
+  
+  createUser(payload) {
+    return this.landaService.DataPost('/v1/users', payload);
+}
+
 
   updateUser(payload) {
     return this.landaService.DataPut('/v1/users', payload);
