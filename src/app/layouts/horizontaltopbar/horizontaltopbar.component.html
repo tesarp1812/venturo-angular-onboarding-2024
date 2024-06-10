@@ -67,13 +67,15 @@
             </a>
           </li>
           <li class="nav-item dropdown" id="steps-setting">
-            <a class="nav-link dropdown-toggle arrow-none side-nav-link-ref" [class.active] = "['user'].includes(url)" href="javascript: void(0);" id="topnav-setting" role="button">
+            <a class="nav-link dropdown-toggle arrow-none side-nav-link-ref" [class.active]="['user'].includes(url)" href="javascript: void(0);" id="topnav-setting" role="button">
               <i class="fas fa-cog me-2"></i> Setting
               <div class="ms-sm-1 arrow-down"></div>
             </a>
             <div class="dropdown-menu">
+              <a href="javascript: void(0);" [routerLink]="['/user']" class="col dropdown-item side-nav-link-ref">User</a>
+              <a href="javascript: void(0);" [routerLink]="['/customer']" class="col dropdown-item side-nav-link-ref">Customer</a>
             </div>
-          </li>
+           </li>
         </ul>
       </div>
     </nav>

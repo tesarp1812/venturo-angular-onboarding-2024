@@ -6,6 +6,8 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FeatureRoutingModule } from './feature-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserModule } from './user/user.module';
+import { TestModule } from './test/test.module';
 
 // const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 //     suppressScrollX: true,
@@ -20,6 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         CommonModule,
         FeatureRoutingModule,
         // PerfectScrollbarModule,
+        UserModule,
+        TestModule
     ],
     // providers: [
     //     {
