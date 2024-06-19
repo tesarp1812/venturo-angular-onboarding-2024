@@ -8,6 +8,8 @@ import { FeatureRoutingModule } from './feature-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserModule } from './user/user.module';
 import { TestModule } from './test/test.module';
+import { CustomerModule } from './customer/customer.module';
+import { ProductModule } from './product/product.module';
 
 // const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 //     suppressScrollX: true,
@@ -23,6 +25,8 @@ import { TestModule } from './test/test.module';
         FeatureRoutingModule,
         // PerfectScrollbarModule,
         UserModule,
+        CustomerModule,
+        ProductModule,
         TestModule
     ],
     // providers: [

@@ -1,25 +1,24 @@
-import { Component } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { Component, ViewChild } from '@angular/core';
+import { CustomerService } from '../../services/customer.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { DataTableDirective } from 'angular-datatables';
-import { ViewChild } from '@angular/core';
-import { ajax } from 'jquery';
-
 
 @Component({
-  selector: 'app-list-user',
-  templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.scss']
+  selector: 'app-list-customer',
+  templateUrl: './list-customer.component.html',
+  styleUrls: ['./list-customer.component.scss']
 })
-export class ListUserComponent {
-  listUser: any;
-  formUser: any;
+export class ListCustomerComponent {
+  listCustomer: any;
+  formCustomer: any;
   titleModal: string;
-  userId: number;
+  customerId: number;
+
   filter: {
     nama: ''
   };
+
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -27,16 +26,16 @@ export class ListUserComponent {
   dtOptions: any;
 
   constructor(
-    private userService: UserService,
+    private customerService: CustomerService,
     private modalService: NgbModal,
   ) { }
 
   ngOnInit(): void {
     this.setDefault();
-    this.getUser();
+    this.getCustomer();
   }
 
-  getUser() {
+  getCustomer() {
     this.dtOptions = {
       serverSide: true,
       processing: true,
@@ -48,60 +47,29 @@ export class ListUserComponent {
           per_page: dtParams.length,
           page: (dtParams.start / dtParams.length) + 1,
         };
-   
-        this.userService.getUsers(params).subscribe((res: any) => {
+
+        this.customerService.getCustomers(params).subscribe((res: any) => {
           const { list, meta } = res.data;
-   
+
           let number = dtParams.start + 1;
           list.forEach(val => {
             val.no = number++;
           });
-          this.listUser = list;
-   
+          this.listCustomer = list;
+
           callback({
             recordsTotal: meta.total,
             recordsFiltered: meta.total,
             data: [],
           });
-   
+
         }, (err: any) => {
-   
+
         });
       },
     };
-   }
- 
-  createUser(modalId) {
-    this.titleModal = 'Tambah User';
-    this.userId = 0;
-    this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
   }
 
-
-  updateUser(modalId, user) {
-    console.log(user);
-    this.titleModal = 'Edit User: ' + user.name;
-    this.userId = user.id;
-    this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
-  }
-
-  deleteUser(userId) {
-    Swal.fire({
-      title: 'Apakah kamu yakin ?',
-      text: 'User ini tidak dapat login setelah kamu menghapus datanya',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#34c38f',
-      cancelButtonColor: '#f46a6a',
-      confirmButtonText: 'Ya, Hapus data ini !',
-    }).then((result) => {
-      if (!result.value) return false;
-
-      this.userService.deleteUser(userId).subscribe((res: any) => {
-        this.getUser();
-      });
-    });
-  }
 
   reloadDataTable(): void {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -115,5 +83,37 @@ export class ListUserComponent {
     }
   }
 
-  
+  createCustomer(modalId) {
+    this.titleModal = 'Tambah User';
+    this.customerId = 0;
+    this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
+  }
+
+  updateCustomer(modalId, customer) {
+    this.titleModal = 'Edit Customer: ' + customer.name;
+    this.customerId = customer.id;
+    this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
+  }
+
+
+  deleteCustomer(customerId) {
+    Swal.fire({
+      title: 'Apakah kamu yakin ?',
+      text: 'Customer ini tidak dapat login setelah kamu menghapus datanya',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#34c38f',
+      cancelButtonColor: '#f46a6a',
+      confirmButtonText: 'Ya, Hapus data ini !',
+    }).then((result) => {
+      if (!result.value) return false;
+
+      this.customerService.deleteCustomer(customerId).subscribe((res: any) => {
+        this.getCustomer();
+      });
+    });
+  }
+
+
+
 }

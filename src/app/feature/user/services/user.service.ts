@@ -15,11 +15,10 @@ export class UserService {
   getUserById(userId) {
     return this.landaService.DataGet('/v1/users/' + userId);
   }
-  
+
   createUser(payload) {
     return this.landaService.DataPost('/v1/users', payload);
-}
-
+  }
 
   updateUser(payload) {
     return this.landaService.DataPut('/v1/users', payload);
@@ -28,5 +27,10 @@ export class UserService {
   deleteUser(userId) {
     return this.landaService.DataDelete('/v1/users/' + userId);
   }
+
+  getRoles(arrParameter = {}) {
+    return this.landaService.DataGet('/v1/roles', arrParameter);
+  }
+
 
 }
