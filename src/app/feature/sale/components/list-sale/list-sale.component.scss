@@ -1,0 +1,28 @@
+.form-select {
+    height: 35px; /* Sesuaikan tinggi dengan tombol */
+    border-radius: 6px; /* Sesuaikan radius dengan tombol */
+    border: 1px solid #ced4da; /* Warna border default */
+    background-color: #fff; /* Warna latar belakang */
+    color: #495057; /* Warna teks */
+    padding: 0.5rem 1rem; /* Padding */
+    font-size: 16px; /* Ukuran font */
+}
+
+.form-select:focus {
+    border-color: #009AAD; /* Warna border saat fokus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 154, 170, 0.25); /* Efek fokus */
+}
+
+.form-select option {
+    font-size: 16px; /* Ukuran font untuk opsi */
+}
+
+.form-control {
+    height: 35px; /* Sesuaikan tinggi dengan tombol */
+    border-radius: 6px; /* Sesuaikan radius dengan tombol */
+    border: 1px solid #ced4da; /* Warna border default */
+    background-color: #fff; /* Warna latar belakang */
+    color: #495057; /* Warna teks */
+    padding: 0.5rem 1rem; /* Padding */
+    font-size: 16px; /* Ukuran font */
+}

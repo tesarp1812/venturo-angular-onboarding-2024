@@ -10,6 +10,11 @@ import { UserModule } from './user/user.module';
 import { TestModule } from './test/test.module';
 import { CustomerModule } from './customer/customer.module';
 import { ProductModule } from './product/product.module';
+import { ListTransactionComponent } from './transaction/components/list-transaction/list-transaction.component';
+import { SalesModule } from './sales/sales.module';
+import { ListSaleComponent } from './sale/components/list-sale/list-sale.component';
+import { FormSaleComponent } from './sale/components/form-sale/form-sale.component';
+import { SaleModule } from './sale/sale.module';
 
 // const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 //     suppressScrollX: true,
@@ -17,7 +22,7 @@ import { ProductModule } from './product/product.module';
 // };
 
 @NgModule({
-    declarations: [DashboardComponent],
+    declarations: [DashboardComponent, ListTransactionComponent, ],
     imports: [
         ReactiveFormsModule,
         NgbAlertModule,
@@ -27,7 +32,10 @@ import { ProductModule } from './product/product.module';
         UserModule,
         CustomerModule,
         ProductModule,
-        TestModule
+        TestModule,
+        SalesModule,
+        // SaleModule
+        
     ],
     // providers: [
     //     {

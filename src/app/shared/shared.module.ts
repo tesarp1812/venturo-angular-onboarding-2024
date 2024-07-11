@@ -4,9 +4,10 @@ import { PageTitleComponent } from './page-title/page-title.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-error/404/page-not-found.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
-  declarations: [PageTitleComponent, PageNotFoundComponent],
+  declarations: [PageTitleComponent, PageNotFoundComponent, UploadImageComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -14,7 +15,8 @@ import { PageNotFoundComponent } from './page-error/404/page-not-found.component
   ],
   exports: [
     PageTitleComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UploadImageComponent
   ]
 })
 export class SharedModule { }

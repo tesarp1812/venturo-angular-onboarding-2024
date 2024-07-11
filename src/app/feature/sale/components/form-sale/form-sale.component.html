@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Detail Order & Payment</h5>
+        <h3 class="name-customers">{{ selectedCustomer ? selectedCustomer.name : 'Nama Customer' }}</h3>
+        <div class="selected-menus">
+            <p>Menu</p>
+            <div class="menu-details">
+                <div class="row g-0" *ngFor="let menu of selectedMenu">
+                    <div class="col-md-4">
+                        <img [src]="menu.photo_url" class="img-fluid" alt="Menu Image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card vertical-card">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ menu.name }}</h6>
+                                <p class="card-text">Harga: Rp {{ menu.price }}</p>
+                                <div class="quantity-controls">
+                                    <button (click)="decreaseQuantity(menu)">-</button>
+                                    <span>{{ menu.quantity }}</span>
+                                    <button (click)="increaseQuantity(menu)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="order-summary">
+            <h6 class="card-subtitle mb-2 text-muted">Sub Total: Rp {{ calculateSubtotal() }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Tax (11%): Rp {{ calculateTax() }}</h6>
+            <h5 class="card-title">Total Pembayaran: {{ calculateTotal() }}</h5>
+        </div>
+        <div class="add-order-button">
+            <button class="btn-add-order">+ Tambah Pesanan</button>
+        </div>
+    </div>
+</div>

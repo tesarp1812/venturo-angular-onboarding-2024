@@ -39,14 +39,14 @@
     <div class="collapse navbar-menu navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle arrow-none" [class.active] = "['home'].includes(url)" href="javascript: void(0);"
-            [routerLink]="['/']" id="dashboards" role="button">
+          <a class="nav-link dropdown-toggle arrow-none" [class.active]="['home'].includes(url)"
+            href="javascript: void(0);" [routerLink]="['/']" id="dashboards" role="button">
             <i class="fa fa-home me-2"></i>Dashboard
           </a>
         </li>
         <li class="nav-item dropdown" ngbDropdown>
-          <a class="nav-link dropdown-toggle" [class.active] = "['user'].includes(url)" (click)="onMenuClick($event)" href="javascript: void(0);"
-            id="topnav-components" role="button" ngbDropdownToggle>
+          <a class="nav-link dropdown-toggle" [class.active]="['user'].includes(url)" (click)="onMenuClick($event)"
+            href="javascript: void(0);" id="topnav-components" role="button" ngbDropdownToggle>
             <i class="bx bx-cog me-2"></i>Setting
             <div class="arrow-down"></div>
           </a>
@@ -62,22 +62,38 @@
       <div class="collapse navbar-collapse" id="topnav-menu-content">
         <ul class="navbar-nav ">
           <li class="nav-item dropdown " id="dashboard-nav">
-            <a class="nav-link arrow-none side-nav-link-ref" [class.active] = "['home'].includes(url)" id="topnav-dashboard" role="button" href="javascript: void(0);" [routerLink]="['/']">
+            <a class="nav-link arrow-none side-nav-link-ref" [class.active]="['home'].includes(url)"
+              id="topnav-dashboard" role="button" href="javascript: void(0);" [routerLink]="['/']">
               <i class="fa fa-home me-2"></i> Dashboard
             </a>
           </li>
+          <li class="nav-item dropdown" id="transaction-nav">
+            <a class="nav-link arrow-none side-nav-link-ref" [class.active]="['transaction'].includes(url)"
+              id="topnav-transaction" role="button" href="javascript:void(0);" [routerLink]="['/transaction']">
+              <i class="fa fa-money-bill-alt me-2"></i> Transaksi <!-- Mengganti icon dan teks dengan tepat -->
+            </a>
+          </li>
           <li class="nav-item dropdown" id="steps-setting">
-            <a class="nav-link dropdown-toggle arrow-none side-nav-link-ref" [class.active]="['user'].includes(url)" href="javascript: void(0);" id="topnav-setting" role="button">
+            <a class="nav-link dropdown-toggle arrow-none side-nav-link-ref" [class.active]="['user'].includes(url)"
+              href="javascript: void(0);" id="topnav-setting" role="button">
               <i class="fas fa-cog me-2"></i> Setting
               <div class="ms-sm-1 arrow-down"></div>
             </a>
             <div class="dropdown-menu">
-              <a href="javascript: void(0);" [routerLink]="['/user']" class="col dropdown-item side-nav-link-ref">User</a>
-<a href="javascript: void(0);" [routerLink]="['/category']" class="col dropdown-item side-nav-link-ref">Menu Kategori</a>
-<a href="javascript: void(0);" [routerLink]="['/product']" class="col dropdown-item side-nav-link-ref">Menu</a>
-              <a href="javascript: void(0);" [routerLink]="['/customer']" class="col dropdown-item side-nav-link-ref">Customer</a>
+              <a href="javascript: void(0);" [routerLink]="['/user']"
+                class="col dropdown-item side-nav-link-ref">User</a>
+              <a href="javascript: void(0);" [routerLink]="['/category']"
+                class="col dropdown-item side-nav-link-ref">Menu Kategori</a>
+              <a href="javascript: void(0);" [routerLink]="['/product']"
+                class="col dropdown-item side-nav-link-ref">Menu</a>
+              <a href="javascript: void(0);" [routerLink]="['/customer']"
+                class="col dropdown-item side-nav-link-ref">Customer</a>
+              <a href="javascript: void(0);" [routerLink]="['/sale']"
+                class="col dropdown-item side-nav-link-ref">Sale</a>
+              <a href="javascript: void(0);" [routerLink]="['/report/sales-menu']"
+                class="col dropdown-item side-nav-link-ref">Rekap Penjualan Menu</a>
             </div>
-           </li>
+          </li>
         </ul>
       </div>
     </nav>

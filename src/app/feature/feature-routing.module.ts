@@ -9,6 +9,9 @@ import { FormCustomerComponent } from './customer/components/form-customer/form-
 import { ListCustomerComponent } from './customer/components/list-customer/list-customer.component';
 import { ListProductComponent } from './product/product/components/list-product/list-product.component';
 import { ListCategoryComponent } from './product/category/components/list-category/list-category.component';
+import { ListSalesComponent } from './sales/components/list-sales/list-sales.component';
+import { ListTransactionComponent } from './transaction/components/list-transaction/list-transaction.component';
+import { ListSaleComponent } from './sale/components/list-sale/list-sale.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,7 +21,11 @@ const routes: Routes = [
     { path: 'test', component: TestDirectiveComponent ,pathMatch: 'full' },
     { path: 'customer', component: ListCustomerComponent ,pathMatch: 'full' },
     { path: 'category', component: ListCategoryComponent, pathMatch: 'full'},
-    { path: 'product', component: ListProductComponent, pathMatch: 'full'}
+    { path: 'product', component: ListProductComponent, pathMatch: 'full'},
+    { path: 'transaction', component: ListSaleComponent, pathMatch: 'full'},
+    { path: 'transaction-test', component: ListTransactionComponent, pathMatch: 'full'},
+    // { path: 'sale', component: ListSalesComponent, pathMatch: 'full'},
+    // { path: 'sale', component: ListSaleComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

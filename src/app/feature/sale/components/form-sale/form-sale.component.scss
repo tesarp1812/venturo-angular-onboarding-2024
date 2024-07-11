@@ -1,0 +1,30 @@
+.add-order-button {
+    margin-top: 1rem; /* Spasi antara elemen sebelumnya dan tombol */
+}
+
+.btn-add-order {
+    height: 35px; /* Tinggi tombol */
+    width: 250px; /* Lebar tombol, sesuaikan jika perlu */
+    background-color: #009AAD; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border: none; /* Hapus border default */
+    border-radius: 6px; /* Radius sudut tombol */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold; /* Ketebalan font */
+    text-align: center; /* Teks di tengah tombol */
+    line-height: 35px; /* Menyelaraskan teks vertikal */
+    cursor: pointer; /* Tangan saat hover */
+    transition: background-color 0.3s ease; /* Efek transisi */
+}
+
+.btn-add-order:hover {
+    background-color: #007B8D; /* Warna latar belakang saat hover */
+}
+
+.btn-add-order:focus {
+    outline: none; /* Hapus outline default saat tombol fokus */
+}
+
+.name-customers{
+    color: #009AAD;
+}

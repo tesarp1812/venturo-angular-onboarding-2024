@@ -1,12 +1,16 @@
 <form>
-<!-- <div class="col-md-2">
-    <div class="form-group row">
-        <div class="col-md-12">
-            <app-upload-image [defaultImage]="formModel.photo_url" [ratioHigh]="3" [ratioWidth]="3"
-                (onSubmit)="getCroppedImage($event)"></app-upload-image>
+
+    <div class="form-group row mt-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <app-upload-image [defaultImage]="formModel.photo_url" [ratioHigh]="4" [ratioWidth]="3"
+                (onSubmit)="getCroppedImage($event)">
+            </app-upload-image>
         </div>
+        <div class="col-md-4"></div>
     </div>
- </div>  -->
+    <hr>
+
     <div class="col-md-4">
         <div class="form-group row">
             <label class="form-label col-md-3 required">Nama</label>
@@ -15,7 +19,7 @@
                     placeholder="Tulis nama menu">
             </div>
         </div>
-        <!-- <div class="form-group row">
+        <div class="form-group row">
             <label class="col-md-3 required">Kategori</label>
             <div class="col-md-9">
                 <ng-select [items]="categories" placeholder="Pilih kategori" bindLabel="name" bindValue="id"
@@ -27,21 +31,24 @@
                     </ng-template>
                 </ng-select>
             </div>
-        </div> -->
+        </div>
         <div class="form-group row">
             <label class="col-md-3 required">Status</label>
             <div class="col-md-9">
-                <div class="btn-group btn-group-toggle" ngbRadioGroup name="is_available"
-                    [(ngModel)]="formModel.is_available">
+                <div class="btn-group" ngbRadioGroup name="is_available" [(ngModel)]="formModel.is_available">
                     <label ngbButtonLabel class="btn-primary">
-                        <input ngbButton type="radio" value="1"> Ada
+                        <input name="is_available" [(ngModel)]="formModel.is_available" ngbButton type="radio"
+                            value="1"> Ada
                     </label>
                     <label ngbButtonLabel class="btn-primary">
-                        <input ngbButton type="radio" value="0"> Habis
+                        <input name="is_available" [(ngModel)]="formModel.is_available" ngbButton type="radio"
+                            value="0"> Habis
                     </label>
                 </div>
             </div>
         </div>
+
+
         <div class="form-group row">
             <label class="col-md-3 required">Harga</label>
             <div class="col-md-9">
@@ -56,11 +63,18 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="form-group row">
+        <div class="form-group row">
             <label class="col-md-3">Deskripsi</label>
             <div class="col-md-9">
                 <ckeditor [editor]="configEditor" [(ngModel)]="formModel.description" name="description"></ckeditor>
             </div>
-        </div> -->
+        </div>
+        <div class="form-group row">
+            <label class="col-md-4"></label>
+            <div class="col-md-8 text-right">
+                <button type="submit" class="btn btn-primary" (click)="save()"><em class="fa fa-save"></em>
+                    Simpan</button>
+            </div>
+        </div>
     </div>
 </form>

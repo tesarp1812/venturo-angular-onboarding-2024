@@ -4,6 +4,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { LandaService } from 'src/app/core/services/landa.service';
 import { ProgressServiceService } from 'src/app/core/services/progress-service.service';
+import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-form-product',
@@ -25,10 +27,15 @@ export class FormProductComponent {
   constructor(
     private productService: ProductService,
     private landaService: LandaService,
-    private progressService: ProgressServiceService
+    private progressService: ProgressServiceService,
+    private sanitizer: DomSanitizer
   ) { }
 
+  croppedImage: any;
+  imageChangedEvent: any;
   activeMode: string;
+  categories: any[];
+  showLoading: boolean = true;
   formModel: {
     id: number,
     name: string,
@@ -141,6 +148,27 @@ export class FormProductComponent {
     if (detail?.id) {
       detail.is_updated = true;
     }
+  }
+
+  getCroppedImage($event) {
+    this.formModel.photo_url = $event;
+   }
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = this.sanitizer.bypassSecurityTrustUrl(event.objectUrl);
+    // event.blob can be used to upload the cropped image
+  }
+  imageLoaded(image: LoadedImage) {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
   }
 
 }

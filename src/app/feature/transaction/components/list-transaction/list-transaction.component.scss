@@ -1,0 +1,34 @@
+.card {
+    margin-bottom: 10px;
+  }
+  
+  .droppable-area {
+    border: 2px dashed #ccc;
+    padding: 10px;
+    min-height: 50px;
+  }
+  
+  .fixed-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000; // Sesuaikan jika diperlukan
+    background-color: #fff; // Sesuaikan sesuai desain
+    border-top: 1px solid #ddd; // Garis pemisah jika diperlukan
+  }
+
+  #myform {
+    text-align: center;
+    padding: 5px;
+    border: 1px dotted #ccc;
+    margin: 2%;
+  }
+  .qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+  }
+  input.qtyplus, input.qtyminus {
+    width: 25px;
+    height: 25px;
+  }
