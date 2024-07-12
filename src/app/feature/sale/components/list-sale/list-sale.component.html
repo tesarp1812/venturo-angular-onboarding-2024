@@ -2,15 +2,14 @@
     <div class="row mb-3">
         <div class="col-md-4">
             <select class="form-select" aria-label="Select menu" [(ngModel)]="selectedCustomer"
-                (ngModelChange)="selectCustomer($event)">
+                (ngModelChange)="selectCustomer($event)" placeholder="Nama Customer">
                 <option selected>Nama Customers</option>
                 <option *ngFor="let customer of listCustomer" [ngValue]="customer">{{ customer.name }}</option>
             </select>
 
         </div>
         <div class="col-md-4">
-
-            <input type="text" class="form-control form-control-sm" placeholder="masukkan nama" name="name" />
+            <input type="text" class="form-control" placeholder="Nasi Goreng" name="name" />
         </div>
     </div>
     <div class="row">
@@ -24,7 +23,7 @@
                                 <img [src]="item.photo_url" class="card-img-top img-4-3" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ item.name }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Rp. {{ item.price }}</h6>
+                                    <h6 class="card-subtitle mb-2 ">Rp. {{ item.price }}</h6>
                                 </div>
                             </div>
                         </div>

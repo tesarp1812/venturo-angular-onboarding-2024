@@ -12,13 +12,24 @@
                     <div class="col-md-8">
                         <div class="card vertical-card">
                             <div class="card-body">
-                                <h6 class="card-title">{{ menu.name }}</h6>
-                                <p class="card-text">Harga: Rp {{ menu.price }}</p>
-                                <div class="quantity-controls">
-                                    <button (click)="decreaseQuantity(menu)">-</button>
-                                    <span>{{ menu.quantity }}</span>
-                                    <button (click)="increaseQuantity(menu)">+</button>
+                                <div class="continer">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6 class="card-title">{{ menu.name }}</h6>
+                                            <p class="text-price">Rp {{ menu.price }}</p>
+                                            <i class="bi bi-card-list"><p>desc</p></i>
+                                        </div>
+                                        <div class="col">
+                                            <div class="quantity-controls">
+                                                <button class="btn-decreaseQuantity" (click)="decreaseQuantity(menu)" >-</button>
+                                                <span>{{ menu.quantity }}</span>
+                                                <button class="btn-increaseQuantity" (click)="increaseQuantity(menu)">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                     </div>
