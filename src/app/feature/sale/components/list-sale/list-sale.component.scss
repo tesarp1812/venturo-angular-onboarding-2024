@@ -1,36 +1,51 @@
-.form-select {
-    height: 35px; /* Sesuaikan tinggi dengan tombol */
-    border-radius: 6px; /* Sesuaikan radius dengan tombol */
-    border: 1px solid #ced4da; /* Warna border default */
-    background-color: #fff; /* Warna latar belakang */
-    color: #495057; /* Warna teks */
-    padding: 0.5rem 1rem; /* Padding */
-    font-size: 16px; /* Ukuran font */
-}
-
-.form-select:focus {
-    border-color: #009AAD; /* Warna border saat fokus */
-    box-shadow: 0 0 0 0.2rem rgba(0, 154, 170, 0.25); /* Efek fokus */
-}
-
-.form-select option {
-    font-size: 16px; /* Ukuran font untuk opsi */
-}
-
-.form-control {
-    height: 35px; /* Sesuaikan tinggi dengan tombol */
-    border-radius: 6px; /* Sesuaikan radius dengan tombol */
-    border: 1px solid #ced4da; /* Warna border default */
-    background-color: #fff; /* Warna latar belakang */
-    color: #495057; /* Warna teks */
-    padding: 0.5rem 1rem; /* Padding */
-    font-size: 16px; /* Ukuran font */
-}
-
-.card-subtitle{
+.card-subtitle {
+    font-size: 14px;
+    text-align: center;
     color: #009AAD;
 }
 
-.card-text-Price{
-    color: #009AAD;
+.menu-item {
+    width: 200px;
+    height: 188px;
+    background-color: #FAFAFA;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.menu-item img {
+    width: 144px;
+    height: 144px;
+    border-radius: 4px;
+    margin-right: 10px;
+    
+}
+
+.card-item {
+    background-color: #009AAD;
+}
+
+.title-menu {
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    text-align: center;
+}
+
+.img-menu {
+    width: 144px;
+    /* Width of the cropped area */
+    height: 144px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-menu img {
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    clip-path: inset(50px 50px 50px 50px);
 }

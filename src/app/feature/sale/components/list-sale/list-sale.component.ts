@@ -49,13 +49,11 @@ export class ListSaleComponent implements OnInit {
     const index = this.selectedMenu.findIndex(menu => menu.id === item.id);
 
     if (index !== -1) {
-      // Item exists in selectedMenu, increase its quantity
       this.selectedMenu[index].quantity++;
     } else {
-      // Item does not exist in selectedMenu, add it with quantity 1
       this.selectedMenu.push({ ...item, quantity: 1 });
-      //  this.recalculate();
     }
+    console.log(this.selectedMenu);
   }
 
   selectCustomer(cus: any) {

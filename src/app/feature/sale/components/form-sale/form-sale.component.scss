@@ -1,6 +1,5 @@
 .add-order-button {
-    margin-top: 1rem;
-    /* Spasi antara elemen sebelumnya dan tombol */
+    margin-top: rem;
 }
 
 .btn-add-order {
@@ -30,44 +29,136 @@
     /* Efek transisi */
 }
 
-.btn-add-order:hover {
-    background-color: #007B8D;
-    /* Warna latar belakang saat hover */
-}
-
-.btn-add-order:focus {
-    outline: none;
-    /* Hapus outline default saat tombol fokus */
-}
-
-.name-customers {
-    color: #009AAD;
-}
-
-.text-price {
-    color: #009AAD;
-}
-
 .btn-decreaseQuantity {
-    // display: inline-block;
-    border: 1px solid #ffffff;
-    // margin: 0px;
-    width: 18px;
-    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #f7f7f7;
+    width: 20px;
+    height: 20px;
     text-align: center;
     vertical-align: middle;
-    // padding: 11px 0;
-    background: #eee;
+    padding: 0px 0px;
+    background: #707070;
 }
 
 .btn-increaseQuantity {
-    // display: inline-block;
+    border-radius: 3px;
     border: 1px solid #009AAD;
-    // margin: 0px;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     text-align: center;
     vertical-align: middle;
     padding: 0px 0px;
     background: #009AAD;
+}
+
+.transparent-border-input {
+    border: 0px solid transparent;
+    background-color: transparent;
+}
+
+.transparent-border-input::placeholder {
+    color: #888;
+    /* Warna placeholder, bisa disesuaikan */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 553px;
+    padding: 20px;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #009AAD;
+}
+
+.promo {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.promo div {
+    background-color: #e7f4ff;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    color: #007bff;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.item-price {
+    color: #666;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.item-actions input {
+    width: 30px;
+    text-align: center;
+}
+
+.summary {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.summary div {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.total {
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.2em;
+}
+
+.add-button {
+    display: block;
+    width: 100%;
+    background-color: #009AAD;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
 }

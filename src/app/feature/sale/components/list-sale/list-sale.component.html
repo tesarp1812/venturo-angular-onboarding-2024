@@ -1,38 +1,35 @@
-<div class="container mt-4">
-    <div class="row mb-3">
-        <div class="col-md-4">
-            <select class="form-select" aria-label="Select menu" [(ngModel)]="selectedCustomer"
-                (ngModelChange)="selectCustomer($event)" placeholder="Nama Customer">
-                <option selected>Nama Customers</option>
-                <option *ngFor="let customer of listCustomer" [ngValue]="customer">{{ customer.name }}</option>
-            </select>
-
-        </div>
-        <div class="col-md-4">
-            <input type="text" class="form-control" placeholder="Nasi Goreng" name="name" />
-        </div>
+<div class="row mb-3">
+    <div class="col-md-4">
+        <select class="form-select" aria-label="Select menu" [(ngModel)]="selectedCustomer"
+            (ngModelChange)="selectCustomer($event)" placeholder="Nama Customer">
+            <option selected>Nama Customers</option>
+            <option *ngFor="let customer of listCustomer" [ngValue]="customer">{{ customer.name }}</option>
+        </select>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">List Menu</h5>
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div *ngFor="let item of listSale" class="col mb-4">
-                            <div class="card" (click)="addToOrder(item)">
-                                <img [src]="item.photo_url" class="card-img-top img-4-3" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ item.name }}</h5>
-                                    <h6 class="card-subtitle mb-2 ">Rp. {{ item.price }}</h6>
-                                </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Nasi Goreng" name="name" />
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">List Menu</h5>
+                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                    <div *ngFor="let item of listSale" class="col-3">
+                        <div class="card menu-item" (click)="addToOrder(item)">
+                            <img [src]="item.photo_url" class="img-fluid" alt="...">
+                            <div class="card-body">
+                                <h5 class="title-menu">{{ item.name }}</h5>
+                                <h6 class="card-subtitle mb-2 ">Rp. {{ item.price }}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <app-form-sale [selectedMenu]="selectedMenu" [selectedCustomer]="selectedCustomer"></app-form-sale>
-        </div>
+    </div>
+    <div class="col-md-4">
+        <app-form-sale [selectedMenu]="selectedMenu" [selectedCustomer]="selectedCustomer"></app-form-sale>
     </div>
 </div>
