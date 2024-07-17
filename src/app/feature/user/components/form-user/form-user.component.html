@@ -14,6 +14,13 @@
         </div>
     </div>
     <div class="form-group row">
+        <label class="col-md-4 required">No Telp</label>
+        <div class="col-md-8">
+            <input [(ngModel)]="formModel.phone_number" type="number" name="number" class="form-control"
+                placeholder="Nomer Pengguna">
+        </div>
+    </div>
+    <div class="form-group row">
         <label class="col-md-4">Password</label>
         <div class="col-md-8">
             <input [(ngModel)]="formModel.password" type="password" name="password" class="form-control"
@@ -29,7 +36,8 @@
             <div class="btn-group btn-group-toggle" ngbRadioGroup name="user_roles_id"
                 [(ngModel)]="formModel.user_roles_id">
                 <label ngbButtonLabel class="btn-primary" *ngFor="let role of roles;">
-                    <input ngbButton type="radio" value="{{role.id}}" name="user_roles_id" [(ngModel)]="formModel.user_roles_id"> {{role.name}} 
+                    <input ngbButton type="radio" value="{{role.id}}" name="user_roles_id"
+                        [(ngModel)]="formModel.user_roles_id"> {{role.name}}
                 </label>
             </div>
         </div>
@@ -37,8 +45,9 @@
     <div class="form-group row">
         <label class="col-md-4"></label>
         <div class="col-md-8">
-            <button type="submit" class="btn btn-primary" [ngClass]="{ 'disabled' : isDisabledForm}"
-                (click)="save()">Simpan</button>
+            <button type="button" class="add-button" (click)="save()" [disabled]="isDisabledForm">
+                Simpan Pesanan
+            </button>
         </div>
     </div>
 </form>

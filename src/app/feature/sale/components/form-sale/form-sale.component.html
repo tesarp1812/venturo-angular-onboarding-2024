@@ -1,33 +1,37 @@
-<div class="card">
-    <h5 class="card-title">Detail Order & Payment</h5>
-    <h2>{{ selectedCustomer ? selectedCustomer.name : 'Nama Customer' }}</h2>
-    <div class="promo">
-        <div>10% Mengisi Survey</div>
-        <div>10% Tidak Terlambat</div>
-        <div>10% Terlambat < 3</div>
-        </div>
-        <div class="item" *ngFor="let menu of selectedMenu">
-            <img [src]="menu.photo_url" class="img-fluid" alt="Menu Image">
-            <div class="item-details">
-                <p class="item-name">{{ menu.name }}</p>
-                <p class="item-price">Rp {{ menu.price }}<br><input type="text" placeholder="Descripsi"
-                        class="transparent-border-input">
+<form>
+    <div class="card">
+        <h5 class="card-title">Detail Order & Payment</h5>
+        <h2>{{ selectedCustomer ? selectedCustomer.name : 'Nama Customer' }}</h2>
+        <div class="promo">
+            <div>10% Mengisi Survey</div>
+            <div>10% Tidak Terlambat</div>
+            <div>10% Terlambat < 3</div>
             </div>
-            <div class="quantity-controls">
-                <button class="btn-decreaseQuantity" (click)="decreaseQuantity(menu)">-</button>
-                <span>{{ menu.quantity }}</span>
-                <button class="btn-increaseQuantity" (click)="increaseQuantity(menu)">+</button>
+            <div class="item" *ngFor="let menu of selectedMenu">
+                <img [src]="menu.photo_url" class="img-fluid" alt="Menu Image">
+                <div class="item-details">
+                    <p class="item-name">{{ menu.name }}</p>
+                    <p class="item-price">Rp {{ menu.price }}<br><input type="text" placeholder="Descripsi"
+                            class="transparent-border-input">
+                </div>
+                <div class="quantity-controls">
+                    <button class="btn-decreaseQuantity" (click)="decreaseQuantity(menu)">-</button>
+                    <span>{{ menu.quantity }}</span>
+                    <button class="btn-increaseQuantity" (click)="increaseQuantity(menu)">+</button>
+                </div>
+            </div>
+            <div class="summary">
+                <div class="item-subtotal"><span>Subtotal</span><span>Rp {{ calculateSubtotal() }}</span></div>
+                <div><span>Tax 11%</span><span>Rp {{ calculateTax() }}</span></div>
+                <!-- <div><span>Diskon 20%</span><span>- Rp 13.320</span></div> -->
+            </div>
+            <div class="summary">
+                <div class="total"><span>Total Pembayaran</span><span>Rp {{ calculateTotal() }}</span></div>
+            </div>
+            <div class="summary">
+                <button type="button" class="add-button" (click)="save()">
+                    Simpan Pesanan
+                </button>
             </div>
         </div>
-        <div class="summary">
-            <div class="item-subtotal"><span>Subtotal</span><span>Rp {{ calculateSubtotal() }}</span></div>
-            <div><span>Tax 11%</span><span>Rp {{ calculateTax() }}</span></div>
-            <!-- <div><span>Diskon 20%</span><span>- Rp 13.320</span></div> -->
-        </div>
-        <div class="summary">
-            <div class="total"><span>Total Pembayaran</span><span>Rp {{ calculateTotal() }}</span></div>
-        </div>
-        <div class="summary">
-            <a href="#" class="add-button">+ Tambah Pesanan</a>
-        </div>
-    </div>
+</form>

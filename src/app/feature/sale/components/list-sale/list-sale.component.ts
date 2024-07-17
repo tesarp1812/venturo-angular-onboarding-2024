@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CustomerService } from 'src/app/feature/customer/services/customer.service';
 import { ProductService } from 'src/app/feature/product/product/services/product.service';
 
@@ -14,6 +14,7 @@ export class ListSaleComponent implements OnInit {
   selectedMenu: any = [];
   selectedCustomer: any;
   totalPayment: number = 0;
+  // @Output() afterSave = new EventEmitter<boolean>();
 
 
   constructor(
