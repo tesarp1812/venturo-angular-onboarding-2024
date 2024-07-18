@@ -54,7 +54,7 @@ export class ListSaleComponent implements OnInit {
     } else {
       this.selectedMenu.push({ ...item, quantity: 1 });
     }
-    console.log(this.selectedMenu);
+    console.log("selected menu",this.selectedMenu);
   }
 
   selectCustomer(cus: any) {
