@@ -12,6 +12,7 @@ import { ListCategoryComponent } from './product/category/components/list-catego
 import { ListSalesComponent } from './sales/components/list-sales/list-sales.component';
 import { ListTransactionComponent } from './transaction/components/list-transaction/list-transaction.component';
 import { ListSaleComponent } from './sale/components/list-sale/list-sale.component';
+import { SalesPromoComponent } from './report/components/sales-promo/sales-promo.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
     { path: 'product', component: ListProductComponent, pathMatch: 'full'},
     { path: 'transaction', component: ListSaleComponent, pathMatch: 'full'},
     { path: 'transaction-test', component: ListTransactionComponent, pathMatch: 'full'},
+    { path: 'report/sales-promo', component: SalesPromoComponent, pathMatch: 'full'},
     // { path: 'sale', component: ListSalesComponent, pathMatch: 'full'},
     // { path: 'sale', component: ListSaleComponent, pathMatch: 'full'},
 ];

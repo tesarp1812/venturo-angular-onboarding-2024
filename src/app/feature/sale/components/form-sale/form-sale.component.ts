@@ -25,48 +25,23 @@ export class FormSaleComponent implements OnInit {
     private progressService: ProgressServiceService,
     private landaService: LandaService,
   ) {
-    // this.formModel = {
-    //   date: "2024-06-20",
-    //   m_customer_id: "ef09626f-05db-4ef8-a1ed-cad4e382a3c9",
-    //   product_detail: [
-    //     {
-    //       m_product_id: "f55a105c-b4a0-41f8-8311-42ef27675ec8",
-    //       m_product_detail_id: "56feeef7-5d76-46fc-b3e4-6e00d6ff2ee9",
-    //       total_item: 1,
-    //       price: 10000,
-    //       is_added: true,
-    //     },
-    //   ],
-    // };
     this.formModel = {
-      date: '',
-      m_customer_id: '',
-      product_detail: []
+      date: "2024-06-20",
+      m_customer_id: "ef09626f-05db-4ef8-a1ed-cad4e382a3c9",
+      product_detail: [
+        {
+          m_product_id: "f55a105c-b4a0-41f8-8311-42ef27675ec8",
+          m_product_detail_id: "56feeef7-5d76-46fc-b3e4-6e00d6ff2ee9",
+          total_item: 1,
+          price: 10000,
+          is_added: true,
+        },
+      ],
     };
   }
 
   ngOnInit(): void {
-    this.initializeFormModel();
-  }
-
-  private initializeFormModel(): void {
-    // Check if selectedMenu has data and assign it to formModel
-    if (this.selectedMenu.length > 0) {
-      this.formModel = {
-        date: '2024-06-20', // Set date as per your logic or source
-        m_customer_id: 'ef09626f-05db-4ef8-a1ed-cad4e382a3c9', // Set customer ID as per your logic or source
-        product_detail: this.selectedMenu.map(menuItem => ({
-          m_product_id: menuItem.m_product_id,
-          m_product_detail_id: menuItem.m_product_detail_id,
-          total_item: menuItem.total_item,
-          price: menuItem.price,
-          is_added: menuItem.is_added,
-        }))
-      };
-    } else {
-      // Handle the case where selectedMenu is empty if needed
-      console.warn('selectedMenu is empty or not provided.');
-    }
+    
   }
 
   activeMode: string;
@@ -87,32 +62,60 @@ export class FormSaleComponent implements OnInit {
     this.MODE_CREATE;
     this.insert();
     console.log('disave', this.formModel);
-  }
-
-  insert() {
-    // Start loading progress
-    this.progressService.startLoading();
-
-    // Call the createSale method of saleService and subscribe to the observable
+    this.saleService.createSale(this.formModel);
     this.saleService.createSale(this.formModel).subscribe(
-      (response) => {
-        // Handle the response if needed
-        console.log('Hasil simpan:', response);
-        this.progressService.finishLoading();
+      (res: any) => {
+        this.landaService.alertSuccess("Berhasil", res.message);
+        this.resetForm();
+        this.afterSave.emit();
       },
-      (error) => {
-        // Handle the error if any
-        console.error('Error simpan:', error);
-        this.progressService.finishLoading();
+      (err) => {
+        this.landaService.alertError("Mohon Maaf", err.error.errors);
       }
     );
   }
 
-  decreaseQuantity(menu: any) {
-    if (menu.quantity > 0) {
-      menu.quantity--;
+
+  resetForm() {
+    this.selectedMenu=[];
+    this.selectedCustomer=null;
+    this.ngOnInit();
+  }
+  
+  currentDate = new Date();
+  year = this.currentDate.getFullYear();
+  month = String(this.currentDate.getMonth() + 1).padStart(2, "0");
+  day = String(this.currentDate.getDate()).padStart(2, "0");
+  formattedDate = `${this.year}-${this.month}-${this.day}`;
+  
+  insert() {
+    this.formModel = {
+      date: this.formattedDate,
+      m_customer_id: this.selectedCustomer.id,
+      product_detail: this.selectedMenu.map(menu=>{
+        return{
+          m_product_id: menu.id,
+          m_product_detail_id: menu.details.length == 0 ? null : menu.details[0].id,
+          total_item: menu.quantity || 0,
+          price: menu.price,
+          is_added: true,
+        }
+      }) 
     }
   }
+
+  increaseQuantity(menu: any) {
+  if (menu.quantity >= 0) {
+    menu.quantity++;
+  }
+}
+
+decreaseQuantity(menu: any) {
+  if (menu.quantity > 0) {
+    menu.quantity--;
+  }
+}
+
 
   calculateSubtotal(): number {
     return this.selectedMenu.reduce((acc, menu) => acc + (menu.price * menu.quantity), 0);

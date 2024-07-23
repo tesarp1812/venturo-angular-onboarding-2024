@@ -15,6 +15,7 @@ import { SalesModule } from './sales/sales.module';
 import { ListSaleComponent } from './sale/components/list-sale/list-sale.component';
 import { FormSaleComponent } from './sale/components/form-sale/form-sale.component';
 import { SaleModule } from './sale/sale.module';
+import { SalesPromoComponent } from './report/components/sales-promo/sales-promo.component';
 
 // const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 //     suppressScrollX: true,
@@ -22,7 +23,7 @@ import { SaleModule } from './sale/sale.module';
 // };
 
 @NgModule({
-    declarations: [DashboardComponent, ListTransactionComponent, ],
+    declarations: [DashboardComponent, ListTransactionComponent, SalesPromoComponent, ],
     imports: [
         ReactiveFormsModule,
         NgbAlertModule,
