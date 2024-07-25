@@ -59,6 +59,28 @@ export class LandaService {
     }
 
     /**
+    * delele param except null
+    */
+    removeNull(params = {}) {
+        let filledParams = {};
+        for (const key in params) {
+            if (params[key]) {
+                filledParams[key] = params[key];
+            }
+        }
+     
+        return filledParams;
+     }
+
+     /**
+    * download new tab
+    */
+     DownloadLink(path: string, params = {}) {
+        let queryParams = new URLSearchParams(this.removeNull(params)).toString();
+        window.open(this.apiURL + path + '?' + queryParams);
+     }
+
+    /**
      * Sweet alert Sukses
      */
     alertSuccess(title, content, timer = 3.5) {
