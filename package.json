@@ -61,6 +61,7 @@
     "ng-chartist": "^8.1.0",
     "ng-otp-input": "^1.9.2",
     "ng2-charts": "^4.1.1",
+    "ng2-daterangepicker": "^3.0.1",
     "ngx-color-picker": "^14.0.0",
     "ngx-cookie-service": "^16.0.0",
     "ngx-drag-drop": "^16.0.0",

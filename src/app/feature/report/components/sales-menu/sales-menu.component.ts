@@ -24,10 +24,12 @@ export class SalesMenuComponent {
   };
   showLoading: boolean = false;
   categories: any[];
+  laporan: any;
 
   ngOnInit(): void {
     this.resetFilter();
     this.getCategories();
+    this.testLaporan();
   }
 
   constructor(
@@ -36,11 +38,26 @@ export class SalesMenuComponent {
     private landaService: LandaService
   ) { }
 
+  testLaporan() {
+    this.salesService.getSalesMenu([]).subscribe((res: any) => {
+        console.log('Full response:', res); // Log respons penuh
+        this.laporan = res.data?.list || []; // Gunakan optional chaining untuk menghindari error
+        console.log('laporan:', this.laporan);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+  }
+  
+
+
   getCategories(name = '') {
     this.showLoading = true;
     this.categoryService.getCategories({ name: name }).subscribe((res: any) => {
       this.categories = res.data.list;
       this.showLoading = false;
+      console.log('data categories');
     }, err => {
       console.log(err);
     });
@@ -100,6 +117,10 @@ export class SalesMenuComponent {
     this.filter.category_id = $event.id;
   }
 
+  filterPeriode(event) {
+    this.filter.start_date = event.start;
+    this.filter.end_date = event.end;
+  }
 
 
 }

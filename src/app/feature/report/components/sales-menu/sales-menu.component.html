@@ -4,20 +4,21 @@
         <form class="form-inline" id="filter-sales-promo">
             <div class="form-group">
                 <div class="input-group me-2">
-                    <!-- <app-daterangepicker [startDate]="filter.start_date" [endDate]="filter.end_date" [showRanges]="true"
+                    <!-- <app-daterangepicker [startDate]="filter.start_date" [endDate]="filter.end_date" 
                         (onChange)="setFilterPeriod($event)">
                     </app-daterangepicker> -->
+                    <app-daterangepicker (periode)="filterPeriode($event)" [allPeriode]="true"></app-daterangepicker>
                 </div>
             </div>
             <div class="form-group">
-                <ng-select [items]="categories" (change)="setFilterCategory($event)" class="me-2"
+                <!-- <ng-select [items]="categories" (change)="setFilterCategory($event)" class="me-2"
                     placeholder="Pilih Category" bindLabel="name" bindValue="id" [loading]="showLoading"
                     [searchable]="false" name="customer_id">
                     <ng-template ng-header-tmp>
                         <input class="form-control" type="text" debounceKeyUp
                             (onEvent)="getCategories($event.target.value)" />
                     </ng-template>
-                </ng-select>
+                </ng-select> -->
             </div>
         </form>
         <button type="button" class="btn btn-sm btn-primary me-2" (click)="reloadSales()">

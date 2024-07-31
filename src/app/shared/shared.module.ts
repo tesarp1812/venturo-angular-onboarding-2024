@@ -5,18 +5,21 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-error/404/page-not-found.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import { DaterangepickerComponent } from './daterangepicker/daterangepicker.component';
 
 @NgModule({
-  declarations: [PageTitleComponent, PageNotFoundComponent, UploadImageComponent],
+  declarations: [PageTitleComponent, PageNotFoundComponent, UploadImageComponent, DaterangepickerComponent],
   imports: [
     CommonModule,
     FormsModule,
     ImageCropperModule,
+    FormsModule
   ],
   exports: [
     PageTitleComponent,
     PageNotFoundComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    DaterangepickerComponent
   ]
 })
 export class SharedModule { }

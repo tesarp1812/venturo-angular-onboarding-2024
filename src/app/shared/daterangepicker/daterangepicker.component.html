@@ -1,0 +1,4 @@
+<div class="input-group" >
+  <span class="input-group-text append" id="periode"> <input type="checkbox" [checked]="allPeriode" class="me-2" (click)="clickAll()"/>  All</span>
+  <input type="text" class="form-control" [(ngModel)]="dateRangePicker" id="periode_order" name="periode_order" [disabled]="allPeriode" daterangepicker  (selected)="selectedDate($event, daterange)" placeholder="Periode" />
+</div>
