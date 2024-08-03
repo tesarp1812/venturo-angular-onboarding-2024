@@ -15,6 +15,7 @@ import { ListSaleComponent } from './sale/components/list-sale/list-sale.compone
 import { FormSaleComponent } from './sale/components/form-sale/form-sale.component';
 import { SaleModule } from './sale/sale.module';
 import { SalesPromoComponent } from './report/components/sales-promo/sales-promo.component';
+import { ReportModule } from './report/report.module';
 
 // const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 //     suppressScrollX: true,
@@ -34,8 +35,8 @@ import { SalesPromoComponent } from './report/components/sales-promo/sales-promo
         ProductModule,
         TestModule,
         SalesModule,
-        // SaleModule
-        
+        SaleModule,
+        ReportModule,
     ],
     // providers: [
     //     {
