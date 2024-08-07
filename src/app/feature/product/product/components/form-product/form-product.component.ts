@@ -6,6 +6,7 @@ import { LandaService } from 'src/app/core/services/landa.service';
 import { ProgressServiceService } from 'src/app/core/services/progress-service.service';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CategoryService } from '../../../category/services/category.service';
 
 @Component({
   selector: 'app-form-product',
@@ -28,7 +29,8 @@ export class FormProductComponent {
     private productService: ProductService,
     private landaService: LandaService,
     private progressService: ProgressServiceService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private categoriesService: CategoryService
   ) { }
 
   croppedImage: any;
@@ -53,6 +55,7 @@ export class FormProductComponent {
 
   ngOnInit(): void {
     this.resetForm();
+    this.getCategories();
   }
 
 
@@ -86,9 +89,21 @@ export class FormProductComponent {
     });
   }
 
+  getCategories(name = '') {
+    this.showLoading = true;
+    this.categoriesService.getCategories({ name: name }).subscribe((res: any) => {
+      this.categories = res.data.list;
+      this.showLoading = false;
+      console.log('categories:', this.categories)
+    }, err => {
+      console.log(err);
+    });
+  }
+
   save() {
     switch (this.activeMode) {
       case this.MODE_CREATE:
+        console.log('disave', this.formModel);
         this.insert();
         break;
       case this.MODE_UPDATE:
@@ -106,6 +121,7 @@ export class FormProductComponent {
       this.progressService.finishLoading();
       this.isDisabledForm = false;
     }, err => {
+      console.log('Error occurred:', err);
       this.landaService.alertError('Mohon Maaf', err.error.errors);
       this.progressService.finishLoading();
       this.isDisabledForm = false;
@@ -133,7 +149,7 @@ export class FormProductComponent {
       description: '',
       type: this.DEFAULT_TYPE,
       price: 0,
-    };
+    }
     this.formModel.details.push(val);
   }
 

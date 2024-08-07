@@ -29,7 +29,6 @@ import { ReportModule } from './report/report.module';
         NgbAlertModule,
         CommonModule,
         FeatureRoutingModule,
-        // PerfectScrollbarModule,
         UserModule,
         CustomerModule,
         ProductModule,

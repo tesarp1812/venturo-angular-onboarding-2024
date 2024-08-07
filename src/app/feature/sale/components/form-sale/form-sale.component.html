@@ -1,7 +1,12 @@
 <form>
     <div class="card">
         <h5 class="card-title">Detail Order & Payment</h5>
-        <h2>{{ selectedCustomer ? selectedCustomer.name : 'Nama Customer' }}</h2>
+        <h2>{{ selectedCustomer ? selectedCustomer.name : 'Nama Customer' }}
+            <a href="javascript: void(0);" class="align-middle me-2" (click)="updateCustomer(formCustomer, selectedCustomer)"
+                        placement="left" container="body" ngbTooltip="Ubah">
+                        <em class="fa fa-edit font-size-14"></em>
+                    </a>
+        </h2>
         <div class="promo">
             <div>10% Mengisi Survey</div>
             <div>10% Tidak Terlambat</div>

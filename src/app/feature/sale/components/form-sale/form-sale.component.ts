@@ -4,6 +4,8 @@ import { ProductService } from 'src/app/feature/product/product/services/product
 import { UserService } from 'src/app/feature/user/services/user.service';
 import { SaleService } from '../../services/sale.service';
 import { LandaService } from 'src/app/core/services/landa.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CustomerService } from 'src/app/feature/customer/services/customer.service';
 
 @Component({
   selector: 'app-form-sale',
@@ -16,6 +18,11 @@ export class FormSaleComponent implements OnInit {
   @Input() selectedCustomer: any;
   @Output() afterSave = new EventEmitter<boolean>();
 
+  listCustomer: any;
+  formCustomer: any;
+  titleModal: string;
+  customerId: number;
+
   readonly MODE_CREATE = "add";
   readonly MODE_UPDATE = "update";
 
@@ -24,21 +31,9 @@ export class FormSaleComponent implements OnInit {
     private saleService: SaleService,
     private progressService: ProgressServiceService,
     private landaService: LandaService,
-  ) {
-    this.formModel = {
-      date: "2024-06-20",
-      m_customer_id: "ef09626f-05db-4ef8-a1ed-cad4e382a3c9",
-      product_detail: [
-        {
-          m_product_id: "f55a105c-b4a0-41f8-8311-42ef27675ec8",
-          m_product_detail_id: "56feeef7-5d76-46fc-b3e4-6e00d6ff2ee9",
-          total_item: 1,
-          price: 10000,
-          is_added: true,
-        },
-      ],
-    };
-  }
+    private modalService: NgbModal,
+    private customerService: CustomerService
+  ) { }
 
   ngOnInit(): void {
     
@@ -102,6 +97,21 @@ export class FormSaleComponent implements OnInit {
         }
       }) 
     }
+  }
+
+  getCustomers() {
+    this.customerService.getCustomers([]).subscribe((res: any) => {
+      this.listCustomer = res.data.list;
+      console.log('data customers test:', this.listCustomer);
+    }), (err: any) => {
+      console.log(err);
+    }
+  }
+
+  updateCustomer(modalId, selectedCustomer) {
+    this.titleModal = 'Edit Customer: ' + selectedCustomer.name;
+    this.customerId = selectedCustomer.id;
+    this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
   }
 
   increaseQuantity(menu: any) {

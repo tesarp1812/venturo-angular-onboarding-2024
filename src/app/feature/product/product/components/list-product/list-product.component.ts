@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./list-product.component.scss']
 })
 export class ListProductComponent implements OnInit {
-  cities = ["Malang", "Surabaya", "Mojokerto"];
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtInstance: Promise<DataTables.Api>;
@@ -73,7 +72,6 @@ export class ListProductComponent implements OnInit {
             recordsFiltered: meta.total,
             data: [],
           });
-          console.log('Data produk:', this.listProduct); 
 
         }, (err: any) => {
 

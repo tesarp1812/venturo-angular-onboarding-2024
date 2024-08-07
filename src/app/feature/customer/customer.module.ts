@@ -5,6 +5,7 @@ import { ListCustomerComponent } from './components/list-customer/list-customer.
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataTablesModule } from 'angular-datatables';
+import { FormSaleComponent } from '../sale/components/form-sale/form-sale.component';
 
 
 
@@ -18,6 +19,9 @@ import { DataTablesModule } from 'angular-datatables';
     FormsModule,
     DataTablesModule,
     NgbModule
+  ], exports: [
+    FormCustomerComponent,
+    ListCustomerComponent
   ]
 })
 export class CustomerModule { }

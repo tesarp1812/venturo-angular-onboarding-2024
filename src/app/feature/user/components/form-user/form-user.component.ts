@@ -62,7 +62,6 @@ export class FormUserComponent implements OnInit {
   }
 
   resetForm() {
-    // this.getRoles();
     this.formModel = {
       id: 0,
       name: '',
@@ -87,6 +86,7 @@ export class FormUserComponent implements OnInit {
         this.insert();
         break;
       case this.MODE_UPDATE:
+        console.log('data:', this.formModel)
         this.update();
         break;
     }

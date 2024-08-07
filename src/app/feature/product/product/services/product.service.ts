@@ -17,7 +17,7 @@ export class ProductService {
   }
 
   createProduct(payload){
-    return this.landaService.DataPost('v1/products', payload);
+    return this.landaService.DataPost('/v1/products', payload);
   }
 
   updateProduct(payload){
@@ -25,6 +25,6 @@ export class ProductService {
   }
 
   deleteProduct(id){
-    return this.landaService.DataDelete('/v1/products' +id);
+    return this.landaService.DataDelete('/v1/products/' +id);
   }
 }

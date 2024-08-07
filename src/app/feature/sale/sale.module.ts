@@ -19,7 +19,7 @@ import { CustomerModule } from '../customer/customer.module';
     ReactiveFormsModule,
     NgSelectModule,
     ProductModule,
-    CustomerModule
+    CustomerModule,
   ]
 })
 export class SaleModule { }

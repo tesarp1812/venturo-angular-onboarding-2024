@@ -19,7 +19,6 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: DashboardComponent ,pathMatch: 'full'},
     { path: 'user', component: ListUserComponent ,pathMatch: 'full' },
-    { path: 'test1', component: FormUserComponent ,pathMatch: 'full' },
     { path: 'test', component: TestDirectiveComponent ,pathMatch: 'full' },
     { path: 'customer', component: ListCustomerComponent ,pathMatch: 'full' },
     { path: 'category', component: ListCategoryComponent, pathMatch: 'full'},

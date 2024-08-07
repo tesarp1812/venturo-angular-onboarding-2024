@@ -1,17 +1,14 @@
 <form>
-
     <div class="form-group row mt-3">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-4 offset-md-4 text-center">
             <app-upload-image [defaultImage]="formModel.photo_url" [ratioHigh]="4" [ratioWidth]="3"
                 (onSubmit)="getCroppedImage($event)">
             </app-upload-image>
         </div>
-        <div class="col-md-4"></div>
     </div>
     <hr>
 
-    <div class="col-md-4">
+    <div class="col-md-8 offset-md-2">
         <div class="form-group row">
             <label class="form-label col-md-3 required">Nama</label>
             <div class="col-md-9">
@@ -69,6 +66,36 @@
                 <ckeditor [editor]="configEditor" [(ngModel)]="formModel.description" name="description"></ckeditor>
             </div>
         </div>
+
+        <div class="form-group row mt-4">
+            <label class="col-md-3">Detail Menu</label>
+            <div class="col-md-9">
+                <div *ngFor="let detail of formModel.details; let i = index" class="row mb-2">
+                    <div class="col-md-4">
+                        <label for="">Keterangan</label>
+                        <input [(ngModel)]="detail.description" type="text" name="description-{{i}}" class="form-control"
+                            placeholder="Keterangan" (change)="changeDetail(detail)">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Type</label>
+                        <select [(ngModel)]="detail.type" name="type-{{i}}" class="form-control" (change)="changeDetail(detail)">
+                            <option value="Level">Level</option>
+                            <option value="Toping">Topping</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Harga</label>
+                        <input [(ngModel)]="detail.price" type="text" name="price-{{i}}" class="form-control"
+                            placeholder="Harga" (change)="changeDetail(detail)">
+                    </div>
+                    <div class="col-md-1 text-right">
+                        <button type="button" class="btn btn-danger" (click)="removeDetail(i)">-</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success" (click)="addDetail()">+ Tambah Detail</button>
+            </div>
+        </div>
+        
         <div class="form-group row">
             <label class="col-md-4"></label>
             <div class="col-md-8 text-right">
