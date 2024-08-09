@@ -39,7 +39,7 @@ export class FormCustomerComponent implements OnInit {
   getCustomer(customerId) {
     this.customerService.getCustomerById(customerId).subscribe(
       (res: any) => {
-        console.log(res.data);
+        console.log('test',res.data);
         this.formModel = res.data;
       },
       (err) => {

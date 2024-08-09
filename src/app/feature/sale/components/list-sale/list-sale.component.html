@@ -22,6 +22,7 @@
                 <h5 class="card-title">List Menu</h5>
                 <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                     <div *ngFor="let item of listSale" class="col-3">
+                        <a href="javascript: void(0);" class="align-middle me-2" placement="left" container="body" ngbTooltip="Ubah"><em class="fa fa-edit font-size-14"></em> </a>
                         <div class="card menu-item" (click)="addToOrder(item)">
                             <img [src]="item.photo_url" class="img-fluid" alt="...">
                             <div class="card-body">

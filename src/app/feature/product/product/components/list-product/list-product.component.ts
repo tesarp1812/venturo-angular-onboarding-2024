@@ -21,6 +21,7 @@ export class ListProductComponent implements OnInit {
   titleForm: string;
   productId: number;
   showForm: boolean;
+  
   filter: {
     name: '',
     product_category_id: '',
@@ -106,6 +107,7 @@ export class ListProductComponent implements OnInit {
     this.showForm = true;
     this.titleForm = 'Edit Product: ' + product.name;
     this.productId = product.id;
+    console.log('edit', product);
   }
 
   deleteProduct(productId) {

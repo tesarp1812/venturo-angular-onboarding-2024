@@ -1,3 +1,15 @@
+<ng-template #formCustomer let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title mt-0">{{titleModal}}</h5>
+        <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-form-customer [customerId]="customerId" (afterSave)="modal.dismiss(); getCustomer()"></app-form-customer>
+    </div>
+</ng-template>
+
 <form>
     <div class="card">
         <h5 class="card-title">Detail Order & Payment</h5>

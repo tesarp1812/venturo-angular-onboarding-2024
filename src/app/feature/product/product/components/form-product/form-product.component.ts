@@ -82,8 +82,9 @@ export class FormProductComponent {
   }
 
   getProduct(productId) {
-    this.productService.getProduct(productId).subscribe((res: any) => {
+    this.productService.getProductById(productId).subscribe((res: any) => {
       this.formModel = res.data;
+      console.log('data', res.data);
     }, err => {
       console.error(err);
     });
@@ -175,7 +176,6 @@ export class FormProductComponent {
   }
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = this.sanitizer.bypassSecurityTrustUrl(event.objectUrl);
-    // event.blob can be used to upload the cropped image
   }
   imageLoaded(image: LoadedImage) {
     // show cropper
