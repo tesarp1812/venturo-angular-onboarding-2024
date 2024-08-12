@@ -16,6 +16,9 @@ export class ListSaleComponent implements OnInit {
   totalPayment: number = 0;
   // @Output() afterSave = new EventEmitter<boolean>();
 
+  titleForm: string;
+  productId: number;
+  showForm: boolean;
 
   constructor(
     private saleService: ProductService,
@@ -23,6 +26,7 @@ export class ListSaleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.showForm = false;
     this.getProduct();
     this.getCustomers();
   }
@@ -62,5 +66,11 @@ export class ListSaleComponent implements OnInit {
     console.log('Selected Customer:', this.selectedCustomer);
   }
 
+  formUpdate(product) {
+    this.showForm = true;
+    this.titleForm = 'Edit Product: ' + product.name;
+    this.productId = product.id;
+    console.log('edit', product);
+  }
 
 }

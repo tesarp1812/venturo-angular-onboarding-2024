@@ -20,6 +20,7 @@ import { CustomerModule } from '../customer/customer.module';
     NgSelectModule,
     ProductModule,
     CustomerModule,
+    ProductModule
   ]
 })
 export class SaleModule { }

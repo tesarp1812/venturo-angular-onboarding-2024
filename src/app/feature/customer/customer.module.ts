@@ -21,7 +21,6 @@ import { FormSaleComponent } from '../sale/components/form-sale/form-sale.compon
     NgbModule
   ], exports: [
     FormCustomerComponent,
-    ListCustomerComponent
   ]
 })
 export class CustomerModule { }

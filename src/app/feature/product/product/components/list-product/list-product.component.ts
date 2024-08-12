@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../../category/services/category.service';
 import { DataTableDirective } from 'angular-datatables';
 import Swal from 'sweetalert2';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-product',
@@ -30,7 +31,8 @@ export class ListProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private modalService: NgbModal,
   ) { }
 
   ngOnInit(): void {
@@ -103,10 +105,11 @@ export class ListProductComponent implements OnInit {
     this.productId = 0;
   }
 
-  formUpdate(product) {
+  formUpdate(modalId, product) {
     this.showForm = true;
     this.titleForm = 'Edit Product: ' + product.name;
     this.productId = product.id;
+    this.modalService.open(modalId, { size: 'lg', backdrop: 'static' });
     console.log('edit', product);
   }
 

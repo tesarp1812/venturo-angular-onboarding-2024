@@ -102,7 +102,7 @@ export class FormSaleComponent implements OnInit {
   getCustomers() {
     this.customerService.getCustomers([]).subscribe((res: any) => {
       this.listCustomer = res.data.list;
-      console.log('data customers test:', this.listCustomer);
+      // console.log('data customers test:', this.listCustomer);
     }), (err: any) => {
       console.log(err);
     }
